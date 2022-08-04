@@ -1,10 +1,16 @@
-import React from 'react'
+import React, {FC} from 'react'
 
-const Todos = () => {
+type TodosProps = {
+  children?: React.ReactNode;
+  items: string[];
+}
+
+const Todos: FC<TodosProps> = (props) => {
   return (
     <ul>
-      <li>Learn React</li>
-      <li>Learn TypeScript</li>
+      {props.items.map(item => (
+        <li key={item}>{item}</li>
+      ))}
     </ul>
   )
 }
